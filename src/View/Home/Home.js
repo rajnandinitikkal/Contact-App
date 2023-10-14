@@ -4,7 +4,7 @@ import ContactCard from '../../Component/ContactCard/ContactCard';
 
 export default function Home() {
      
-    const [contacts , setSontacts] = useState([
+    const [contacts , setContacts] = useState([
         {
             name:'Anjali Tikkal',
             mobile: '9158689272',
@@ -36,7 +36,22 @@ export default function Home() {
             email:'mrunaljadhav@gmail.com'
         }
     ]);
+    const [name , setName] = useState('')
+    const [email , setEmail] = useState('')
+    const [mobile , setMobile] = useState('')
+    
+    const addContacts = () => {
+       const obj = {
+        name: name,
+        email:email,
+        mobile: mobile
+       }
+       setContacts([...contacts,obj]);
 
+       setName('');
+       setEmail('');
+       setMobile('');
+    }
 
   return (
    <>
@@ -61,7 +76,32 @@ export default function Home() {
     </div>
 
     <div  className='add-contact-container'>
-    <h2 className='sub-heading'>Hide Contacts</h2>
+    <h2 className='sub-heading'>Add Contacts</h2>
+    <form>
+        <input type="text" placeholder='name' className='user-input' 
+        required 
+        onChange={(e)=>{
+            setName(e.target.value);
+        }}
+        value={name}
+        ></input>
+
+        <input type="email" placeholder='Email' className='user-input' required
+         onChange={(e)=>{
+            setEmail(e.target.value);
+        }}
+        value={email}
+        ></input>
+
+        <input type="tel" placeholder='Contact' className='user-input' required
+         onChange={(e)=>{
+            setMobile(e.target.value);
+        }}
+        value={mobile}
+        ></input>
+
+        <button type="button" className='btn-add-contacts' onClick={addContacts}>Add Contact</button>
+    </form>
     </div>
    </div>
    

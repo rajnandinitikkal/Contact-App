@@ -1,11 +1,11 @@
 .contact-card{
-    background-color: aliceblue;
+    background-color: #fff;
     width: 400px;
     padding: 5px 20px;
     margin: 10px;
     border-radius: 15px;
-    background-color:rgb(236, 224, 206) ;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    cursor: pointer;
 }
 m-4{
     margin: 4px;
