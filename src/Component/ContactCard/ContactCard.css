@@ -1,0 +1,23 @@
+.contact-card{
+    background-color: aliceblue;
+    width: 400px;
+    padding: 5px 20px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color:rgb(236, 224, 206) ;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+m-4{
+    margin: 4px;
+}
+.contact-name{
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px;
+}
+.contact-email{
+    margin: 5px;
+}
+.contact-mobile{
+    margin: 5px;
+}

@@ -1,0 +1,25 @@
+.app-title{
+    color: black;
+    text-align: center;
+    color: rgb(231, 144, 31);
+}
+body{
+    background-color: rgb(236, 224, 206);
+}
+/* .contact-container{
+   text-align: center;
+} */
+.app-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+/* .add-contact-container{
+    background-color: white;
+    height: 500px;
+    width: 400px;
+} */
+.sub-heading{
+    text-align: center;
+}
