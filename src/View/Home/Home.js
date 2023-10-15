@@ -1,15 +1,13 @@
 import React,{useState} from 'react';
 import './Home.css';
 import ContactCard from '../../Component/ContactCard/ContactCard';
+// import showToast from 'crunchy-toast';//
+import showToast from 'crunchy-toast';
+
 
 export default function Home() {
      
     const [contacts , setContacts] = useState([
-        {
-            name:'Anjali Tikkal',
-            mobile: '9158689272',
-            email:'anjalitikkal@gmail.com'
-        },
         {
             name:'Rutuja Gaikwad',
         mobile: '9158569290',
@@ -21,26 +19,30 @@ export default function Home() {
             email:'sakshi83@gmail.com'
         },
         {
-            name:'Pallavi Kale',
-            mobile: '9158608934',
-            email:'kalepallavi@gmail.com'
-        },
-        {
             name:'Swara Gaikwad',
             mobile: '9122608934',
             email:'gaikwadswara@gmail.com'
         },
-        {
-            name:'Mrunal Jadhav',
-            mobile: '9150108934',
-            email:'mrunaljadhav@gmail.com'
-        }
     ]);
     const [name , setName] = useState('')
     const [email , setEmail] = useState('')
     const [mobile , setMobile] = useState('')
     
     const addContacts = () => {
+    if(!name){
+        showToast('Please enter name','error',3000)
+        return;
+    }
+    if(!email){
+        showToast('please enter email','error',3000)
+        return;
+    }
+    if(!mobile){
+        showToast('Please enter mobile number','error',3000)
+        return;
+    }
+
+        
        const obj = {
         name: name,
         email:email,
@@ -52,7 +54,7 @@ export default function Home() {
        setEmail('');
        setMobile('');
     }
-
+    showToast('Contact Added Sucessfully','success',3000)
   return (
    <>
    <h1 className='app-title'>📞Contact App</h1>
@@ -79,21 +81,20 @@ export default function Home() {
     <h2 className='sub-heading'>Add Contacts</h2>
     <form>
         <input type="text" placeholder='name' className='user-input' 
-        required 
         onChange={(e)=>{
             setName(e.target.value);
         }}
         value={name}
         ></input>
 
-        <input type="email" placeholder='Email' className='user-input' required
+        <input type="email" placeholder='Email' className='user-input' 
          onChange={(e)=>{
             setEmail(e.target.value);
         }}
         value={email}
         ></input>
 
-        <input type="tel" placeholder='Contact' className='user-input' required
+        <input type="tel" placeholder='Contact' className='user-input' 
          onChange={(e)=>{
             setMobile(e.target.value);
         }}
