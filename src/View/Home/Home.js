@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState , useEffect} from 'react';
 import './Home.css';
 import ContactCard from '../../Component/ContactCard/ContactCard';
 // import showToast from 'crunchy-toast';//
@@ -29,6 +29,7 @@ export default function Home() {
     const [mobile , setMobile] = useState('')
     
     const addContacts = () => {
+    
     if(!name){
         showToast('Please enter name','error',3000)
         return;
@@ -40,21 +41,64 @@ export default function Home() {
     if(!mobile){
         showToast('Please enter mobile number','error',3000)
         return;
-    }
-
-        
+    }   
        const obj = {
         name: name,
         email:email,
         mobile: mobile
        }
-       setContacts([...contacts,obj]);
+
+       const newContacts = [...contacts,obj];
+       setContacts([newContacts]);
+       saveToLocalStorage(newContacts);
+
+       showToast('Contact Added Sucessfully','success',3000)
 
        setName('');
        setEmail('');
        setMobile('');
+    };
+
+    const deleteContact = (mobileNumber)=>{
+        let indexToDelete = -1;
+
+        contacts.forEach((contactDetail,index) =>{
+            if(contactDetail.mobile === mobileNumber){
+                indexToDelete = index;
+            }
+        })
+
+        contacts.splice(indexToDelete,1);
+
+        saveToLocalStorage(contacts);
+
+        setContacts([...contacts])
+
+        showToast('Contact Deleted Sucessfully','success',3000)
     }
-    showToast('Contact Added Sucessfully','success',3000)
+
+    const saveToLocalStorage = (contactsData) => {
+        localStorage.setItem('contacts',JSON.stringify(contactsData))
+    }
+
+    const loadFromLocalStorage = () =>{
+        const contactsData = JSON.parse(localStorage.getItem('contacts'));
+
+        if(contactsData){
+            setContacts(contactsData);
+        }
+    }
+
+    const enableEditMode = (index)=>{
+       const contactsData = contacts[index];
+       setName(contactsData.name);
+       setEmail(contactsData.email);
+       setMobile(contactsData.mobile);
+    }
+
+    useEffect(()=>{
+        loadFromLocalStorage()
+    })
   return (
    <>
    <h1 className='app-title'>📞Contact App</h1>
@@ -70,7 +114,10 @@ export default function Home() {
             <ContactCard key={index} 
             name={contacts.name} 
             mobile={contacts.mobile} 
-            email={contacts.email} />
+            email={contacts.email}
+            deleteContact={deleteContact}
+            enableEditMode={enableEditMode}
+            index={index} />
             </>
            )
         })
