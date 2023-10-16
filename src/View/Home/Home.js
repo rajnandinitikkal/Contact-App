@@ -1,9 +1,7 @@
 import React,{useState , useEffect} from 'react';
 import './Home.css';
 import ContactCard from '../../Component/ContactCard/ContactCard';
-// import showToast from 'crunchy-toast';//
 import showToast from 'crunchy-toast';
-
 
 export default function Home() {
      
@@ -27,6 +25,8 @@ export default function Home() {
     const [name , setName] = useState('')
     const [email , setEmail] = useState('')
     const [mobile , setMobile] = useState('')
+    const [editIndex , setEditIndex] = useState('-1')
+    const [isEditMode , setIsEditMode] = useState(false)
     
     const addContacts = () => {
     
@@ -91,9 +91,35 @@ export default function Home() {
 
     const enableEditMode = (index)=>{
        const contactsData = contacts[index];
+
        setName(contactsData.name);
        setEmail(contactsData.email);
        setMobile(contactsData.mobile);
+
+       setEditIndex(index);
+       setIsEditMode(true);
+    }
+
+    const editContact = ()=>{
+       const obj = {
+        name : name,
+        email : email,
+        mobile : mobile
+       }
+
+       contacts[editIndex] = obj;
+        
+       setContacts([...contacts]);
+
+       saveToLocalStorage(contacts);
+
+       showToast('Contact edited successfully','success',3000)
+
+       setName('');
+       setEmail('');
+       setMobile('');
+
+       setIsEditMode(false);
     }
 
     useEffect(()=>{
@@ -117,7 +143,7 @@ export default function Home() {
             email={contacts.email}
             deleteContact={deleteContact}
             enableEditMode={enableEditMode}
-            index={index} />
+            index={index}/>
             </>
            )
         })
@@ -125,7 +151,8 @@ export default function Home() {
     </div>
 
     <div  className='add-contact-container'>
-    <h2 className='sub-heading'>Add Contacts</h2>
+    <h2 className='sub-heading'>
+        { isEditMode ? 'Edit Contact' : 'Add Contact'}</h2>
     <form>
         <input type="text" placeholder='name' className='user-input' 
         onChange={(e)=>{
@@ -148,7 +175,10 @@ export default function Home() {
         value={mobile}
         ></input>
 
-        <button type="button" className='btn-add-contacts' onClick={addContacts}>Add Contact</button>
+        <button type="button" className='btn-add-contacts' onClick={()=>{
+            isEditMode ? editContact():addContacts()
+        }
+        }> { isEditMode ? 'Edit Contact' : 'Add Contact'}</button>
     </form>
     </div>
    </div>
