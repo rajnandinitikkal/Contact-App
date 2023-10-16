@@ -1,0 +1,103 @@
+/*! !!../node_modules/css-loader/dist/cjs.js!./CrunchyToast.css */
+
+/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+
+/*! ../node_modules/css-loader/dist/runtime/api.js */
+
+/*! ../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */
+
+/*! ./CrunchyToast.css */
+
+/*! ./CrunchyToast.jsx */
+
+/*! ./toastUtil */
+
+/*! react */
+
+/*! react-dom */
+
+/*! react-dom/client */
+
+/*!**********************!*\
+          !*** ./src/index.js ***!
+          \**********************/
+
+/*!************************!*\
+          !*** external "react" ***!
+          \************************/
+
+/*!**************************!*\
+          !*** ./src/toastUtil.js ***!
+          \**************************/
+
+/*!****************************!*\
+          !*** external "react-dom" ***!
+          \****************************/
+
+/*!******************************!*\
+          !*** ./src/CrunchyToast.css ***!
+          \******************************/
+
+/*!******************************!*\
+          !*** ./src/CrunchyToast.jsx ***!
+          \******************************/
+
+/*!******************************************!*\
+          !*** ./node_modules/react-dom/client.js ***!
+          \******************************************/
+
+/*!*****************************************************!*\
+          !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+          \*****************************************************/
+
+/*!********************************************************************!*\
+          !*** ./node_modules/css-loader/dist/cjs.js!./src/CrunchyToast.css ***!
+          \********************************************************************/
+
+/*!************************************************************************!*\
+          !*** ./node_modules/css-loader/dist/runtime/cssWithMappingToString.js ***!
+          \************************************************************************/
+
+/*!****************************************************************************!*\
+          !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+          \****************************************************************************/
+
+/**
+ * @license React
+ * react-dom.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * @license React
+ * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
