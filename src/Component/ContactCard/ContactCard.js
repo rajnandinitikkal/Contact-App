@@ -1,5 +1,5 @@
-import React from 'react'
-import './ContactCard.css'
+import React from 'react';
+import './ContactCard.css';
 
 
 export default function ContactCard({name,mobile,email,deleteContact,index,enableEditMode}) {
